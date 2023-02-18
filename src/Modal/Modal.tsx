@@ -15,6 +15,9 @@ function Modal({ showModal = false, setShowModal, showResult = false }: Props) {
     const timeToComplete = useSelector((state: RootState) => state.board.timeToComplete);
     const dispatch = useDispatch();
 
+    const seconds = Math.floor((timeToComplete / 10) % 60)
+    const minutes = Math.floor(timeToComplete / (10 * 60))
+
     function share() {
 
     }
@@ -43,11 +46,11 @@ function Modal({ showModal = false, setShowModal, showResult = false }: Props) {
                                 {showResult &&
                                     <div className="relative px-8 pb-5 flex-auto">
                                         <p className="my-4 text-slate-500 text-xl leading-relaxed">
-                                            This is your result.
+                                            Here is your result.
                                         </p>
                                         <ul className="list-disc pl-5">
                                             <li>{`You took ${numberOfTries} tries to complete it`}</li>
-                                            <li>{`All this was achieved in  ${Math.floor((timeToComplete / 10) % 60)} seconds`}</li>
+                                            <li>{`All this was achieved in  ${seconds} seconds ${minutes > 0 && ' and ' + minutes + ' minutes'}`}</li>
                                         </ul>
                                     </div>
                                 }
@@ -58,7 +61,7 @@ function Modal({ showModal = false, setShowModal, showResult = false }: Props) {
                                             onClick={() => showResult ? share() : setShowModal(false)}
                                         >
                                             <span className="font-bold">
-                                                {showResult ? 'Share' : "Let's Gooo"}</span>
+                                                {showResult ? 'Share' : "Let's Goo!"}</span>
                                         </a>
                                         {showResult && <a href="#"
                                             className="flex text-gray-100 justify-center transition duration-200 ease-in-out transform px-4 py-2 w-48 border-b-4 border-gray-500 hover:border-b-2 bg-gradient-to-t from-gray-400  via-gray-600 to-gray-200 rounded-2xl hover:translate-y-px "
