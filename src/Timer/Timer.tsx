@@ -1,36 +1,16 @@
 import { useEffect, useState } from "react";
+import { useDispatch } from 'react-redux';
+import Digit from '../Digit/Digit';
+import { setTimeToComplete } from '../store/boardSlice';
 
-interface Props {
-    digit: number;
-    className?: string;
-}
-
-function Digit({ digit, className }: Props) {
-
-
-    return (
-        <div className={`w-full h-full flex flex-col p-2 bg-neutral rounded-2xl 
-        text-neutral-content bg-slate-400 font-bold`}>
-            <div className={`${className}`}>
-                {digit.toLocaleString('en-US', {
-                    minimumIntegerDigits: 2,
-                    useGrouping: false
-                })}
-            </div>
-
-        </div>
-    )
-}
 
 interface TimerProps {
     start: boolean;
 
 }
 function Timer({ start = false }: TimerProps) {
-    const [time, setTime] = useState(0)
-    // const [millisconds, setMilliseconds] = useState(0)
-    // const [seconds, setSeconds] = useState(0)
-    // const [minutes, setMinutes] = useState(0)
+    const [time, setTime] = useState(0);
+    const dispatch = useDispatch();
 
     useEffect(() => {
         const dt = new Date();
@@ -41,7 +21,8 @@ function Timer({ start = false }: TimerProps) {
             }, 1000);
         } else if (!start) {
             clearInterval(interval);
-            // setTime(0);
+            dispatch(setTimeToComplete(time));
+            setTime(0);
         }
 
         return () => clearInterval(interval);
@@ -54,11 +35,11 @@ function Timer({ start = false }: TimerProps) {
 
     return (
         <div className="grid grid-flow-col gap-2 text-center auto-cols-max py-4">
-            <Digit digit={seconds} className={seconds > 0 ? `animate-down` : ''} />
+            <Digit digit={seconds} extraStyle='bg-slate-400' className={seconds > 0 ? `animate-down` : ''} />
             <span className="text-white text-lg">:</span>
-            <Digit digit={minutes} className={seconds === 0 && minutes > 0 ? `animate-down` : ''} />
+            <Digit digit={minutes} extraStyle='bg-slate-400' className={seconds === 0 && minutes > 0 ? `animate-down` : ''} />
             <span className="text-white text-lg">:</span>
-            <Digit digit={hours} />
+            <Digit digit={hours} extraStyle='bg-slate-400' />
 
         </div>
     )

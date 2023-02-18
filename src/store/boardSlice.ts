@@ -18,6 +18,8 @@ export interface BoardState {
   status: BoardStatus; // started , finished
   size: number;
   cells: Array<CellState>;
+  numberOrTries: number;
+  timeToComplete: number;
 }
 
 const shuffle = (array: any[]) => array.sort(() => 0.5 - Math.random());
@@ -42,12 +44,20 @@ const initialState: BoardState = {
   status: BoardStatus.started,
   size: 4,
   cells: generateDefaultCells(4),
+  numberOrTries: 0,
+  timeToComplete: 0,
 };
 
 export const boardSlice = createSlice({
   name: 'board',
   initialState: initialState,
   reducers: {
+    addTry: (state, action: PayloadAction<number>) => {
+      state.numberOrTries += action.payload;
+    },
+    setTimeToComplete: (state, action: PayloadAction<number>) => {
+      state.timeToComplete = action.payload;
+    },
     setStatus: (state, action: PayloadAction<BoardStatus>) => {
       state.status = action.payload;
     },
@@ -59,8 +69,12 @@ export const boardSlice = createSlice({
         }),
       ];
     },
+    reset: (state) => {
+      Object.assign(state, initialState);
+    },
   },
 });
 
-export const { setStatus, setCell } = boardSlice.actions;
+export const { addTry, setTimeToComplete, setStatus, setCell, reset } =
+  boardSlice.actions;
 export const boardReducer = boardSlice.reducer;

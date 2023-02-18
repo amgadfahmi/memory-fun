@@ -2,7 +2,8 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import defaultcard from "../assets/defaultcard.png";
-import { BoardStatus, CellState, setCell, setStatus } from '../store/boardSlice';
+import Modal from '../Modal/Modal';
+import { addTry, BoardStatus, CellState, setCell, setStatus } from '../store/boardSlice';
 import { RootState } from '../store/store';
 
 interface Props {
@@ -14,15 +15,22 @@ function Cell({ cell }: Props) {
     const [animate, setAnimate] = useState('');
     const cells = useSelector((state: RootState) => state.board.cells);
     const dispatch = useDispatch();
+    const [showModal, setShowModal] = useState(false);
 
 
     function getImgUrl(path: string) {
         return new URL(path, import.meta.url).toString()
     }
 
+    function gameOver() {
+        dispatch(setStatus(BoardStatus.finished));
+        setShowModal(true);
+    }
+
     const onCellClick = (cellData: CellState) => {
         if (cellData.show) return;
         if (cellData.matchFound) return;
+        dispatch(addTry(1));
         cellData.show ? setAnimate('') : setAnimate('animate-jello');
 
         dispatch(setCell({
@@ -36,7 +44,6 @@ function Cell({ cell }: Props) {
             const openButNoMatch = cells.filter(x => x.id !== cellData.id && x.show && !x.matchFound);
             if (matchFound.length > 0) {
                 const isGameOver = cells.filter(x => x.matchFound).length + 2 === cells.length;
-                console.log('isGameOver', isGameOver, cells.filter(x => x.matchFound).length);
 
                 dispatch(setCell({
                     ...matchFound[0],
@@ -49,8 +56,7 @@ function Cell({ cell }: Props) {
                     show: true,
                     matchFound: true,
                 }));
-                return isGameOver && dispatch(setStatus(BoardStatus.finished));
-
+                return isGameOver && gameOver();
             }
             else if (openButNoMatch.length > 0) {
                 setAnimate('animate-shake')
@@ -73,6 +79,8 @@ function Cell({ cell }: Props) {
             className={`w-full h-full relative px-0 border-solid border-2 rounded-2xl text-white
                        bg-slate-500 border-yellow-600 
                         flex justify-center items-center cursor-pointer bg-cover`} >
+            <Modal showModal={showModal} setShowModal={setShowModal} showResult={true} />
+
             <img src={cell.show ? getImgUrl(cell.backgroundImg) : defaultcard}
                 className={`w-full h-full object-cover rounded-2xl ${animate}`} onClick={e => onCellClick(cell)} />
             {/* <div className='absolute left-1/2'>{cell.handle}</div> */}
