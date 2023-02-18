@@ -35,11 +35,11 @@ function Timer({ start = false }: TimerProps) {
 
     return (
         <div className="grid grid-flow-col gap-2 text-center auto-cols-max py-4">
-            <Digit digit={seconds} extraStyle='bg-slate-400' className={seconds > 0 ? `animate-down` : ''} />
+            <Digit digit={seconds} extraStyle='bg-zinc-400' className={seconds > 0 ? `animate-down` : ''} />
             <span className="text-white text-lg">:</span>
-            <Digit digit={minutes} extraStyle='bg-slate-400' className={seconds === 0 && minutes > 0 ? `animate-down` : ''} />
+            <Digit digit={minutes} extraStyle='bg-zinc-400' className={seconds === 0 && minutes > 0 ? `animate-down` : ''} />
             <span className="text-white text-lg">:</span>
-            <Digit digit={hours} extraStyle='bg-slate-400' />
+            <Digit digit={hours} extraStyle='bg-zinc-400' />
 
         </div>
     )

@@ -1,7 +1,13 @@
 
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import useSound from 'use-sound';
 import defaultcard from "../assets/defaultcard.png";
+import sweep from '../assets/sounds/click.wav';
+import complete from '../assets/sounds/complete.wav';
+import fail from '../assets/sounds/fail.wav';
+import success from '../assets/sounds/success.wav';
+
 import Modal from '../Modal/Modal';
 import { addTry, BoardStatus, CellState, setCell, setStatus } from '../store/boardSlice';
 import { RootState } from '../store/store';
@@ -16,6 +22,10 @@ function Cell({ cell }: Props) {
     const cells = useSelector((state: RootState) => state.board.cells);
     const dispatch = useDispatch();
     const [showModal, setShowModal] = useState(false);
+    const [playSweep] = useSound(sweep);
+    const [playFail] = useSound(fail);
+    const [playSuccess] = useSound(success);
+    const [playComplete] = useSound(complete);
 
 
     function getImgUrl(path: string) {
@@ -23,6 +33,7 @@ function Cell({ cell }: Props) {
     }
 
     function gameOver() {
+        playComplete();
         dispatch(setStatus(BoardStatus.finished));
         setShowModal(true);
     }
@@ -30,6 +41,7 @@ function Cell({ cell }: Props) {
     const onCellClick = (cellData: CellState) => {
         if (cellData.show) return;
         if (cellData.matchFound) return;
+        playSweep()
         dispatch(addTry(1));
         cellData.show ? setAnimate('') : setAnimate('animate-jello');
 
@@ -43,6 +55,7 @@ function Cell({ cell }: Props) {
             const matchFound = cells.filter(x => x.id !== cellData.id && x.show && x.handle === cellData.handle);
             const openButNoMatch = cells.filter(x => x.id !== cellData.id && x.show && !x.matchFound);
             if (matchFound.length > 0) {
+                playSuccess();
                 const isGameOver = cells.filter(x => x.matchFound).length + 2 === cells.length;
 
                 dispatch(setCell({
@@ -59,7 +72,8 @@ function Cell({ cell }: Props) {
                 return isGameOver && gameOver();
             }
             else if (openButNoMatch.length > 0) {
-                setAnimate('animate-shake')
+                playFail();
+                setAnimate('animate-shake');
                 dispatch(setCell({
                     ...openButNoMatch[0]
                     , matchFound: false
@@ -77,7 +91,7 @@ function Cell({ cell }: Props) {
     return (
         <div key={cell.id}
             className={`w-full h-full relative px-0 border-solid border-2 rounded-2xl text-white
-                       bg-slate-500 border-yellow-600 
+                       bg-zinc-700 border-yellow-600 
                         flex justify-center items-center cursor-pointer bg-cover`} >
             <Modal showModal={showModal} setShowModal={setShowModal} showResult={true} />
 

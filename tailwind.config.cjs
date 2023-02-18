@@ -62,7 +62,7 @@ module.exports = {
       animation: {
         border: 'border 4s ease infinite',
         jello: 'jello .8s ease 0s 1 normal forwards',
-        shake: 'shake .5s ease 0s 2 normal forwards',
+        shake: 'shake .5s ease 0s 1 normal forwards',
         wiggle: 'wiggle 1s ease-in-out infinite',
         down: 'down 1s ease-in-out infinite',
       },
