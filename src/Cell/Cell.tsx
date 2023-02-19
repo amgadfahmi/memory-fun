@@ -1,13 +1,8 @@
 
-import axios from 'axios';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import useSound from 'use-sound';
+import { PlayFunction } from 'use-sound/dist/types';
 import defaultcard from "../assets/defaultcard.png";
-import sweep from '../assets/sounds/click.wav';
-import complete from '../assets/sounds/complete.wav';
-import fail from '../assets/sounds/fail.wav';
-import success from '../assets/sounds/success.wav';
 
 import Modal from '../Modal/Modal';
 import { addTry, BoardStatus, CellState, setCell, setStatus } from '../store/boardSlice';
@@ -15,38 +10,28 @@ import { RootState } from '../store/store';
 
 interface Props {
     cell: CellState;
-
+    playSweep: PlayFunction,
+    playFail: PlayFunction,
+    playSuccess: PlayFunction,
+    playComplete: PlayFunction,
 }
 
-function Cell({ cell }: Props) {
+function Cell({ cell, playSweep, playFail, playSuccess, playComplete }: Props) {
     const [animate, setAnimate] = useState('');
     const cells = useSelector((state: RootState) => state.board.cells);
-    const board = useSelector((state: RootState) => state.board);
     const dispatch = useDispatch();
     const [showModal, setShowModal] = useState(false);
-    const [playSweep] = useSound(sweep);
-    const [playFail] = useSound(fail);
-    const [playSuccess] = useSound(success);
-    const [playComplete] = useSound(complete);
 
 
     function getImgUrl(path: string) {
         return new URL(path, import.meta.url).toString()
     }
 
-    function createLeaderBoardRecord() {
-        const ENDPOINT_URL = import.meta.env.VITE_ENDPOINT_URL;
-        axios.post(`${ENDPOINT_URL}leaderboard/create`, {
-            steps: board.numberOrTries, timeToComplete: board.timeToComplete
-        }).catch(e => {
-            console.log(e);
-        })
-    }
+
 
     function gameOver() {
         playComplete();
         dispatch(setStatus(BoardStatus.finished));
-        createLeaderBoardRecord();
         setShowModal(true);
     }
 
@@ -109,7 +94,7 @@ function Cell({ cell }: Props) {
 
             <img src={cell.show ? getImgUrl(cell.backgroundImg) : defaultcard}
                 className={`w-full h-full object-cover rounded-2xl ${animate}`} onClick={e => onCellClick(cell)} />
-            {/* <div className='absolute left-1/2'>{cell.handle}</div> */}
+            <div className='absolute left-1/2'>{cell.handle}</div>
         </div >
     )
 }

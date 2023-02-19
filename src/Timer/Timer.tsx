@@ -1,8 +1,9 @@
+import axios from 'axios';
 import { useEffect, useState } from "react";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Digit from '../Digit/Digit';
-import { setTimeToComplete } from '../store/boardSlice';
-
+import { BoardStatus, setTimeToComplete } from '../store/boardSlice';
+import { RootState } from '../store/store';
 
 interface TimerProps {
     start: boolean;
@@ -11,6 +12,16 @@ interface TimerProps {
 function Timer({ start = false }: TimerProps) {
     const [time, setTime] = useState(0);
     const dispatch = useDispatch();
+    const board = useSelector((state: RootState) => state.board);
+
+    function createLeaderBoardRecord() {
+        const ENDPOINT_URL = import.meta.env.VITE_ENDPOINT_URL;
+        axios.post(`${ENDPOINT_URL}leaderboard/create`, {
+            steps: board.numberOrTries, timeToComplete: seconds
+        }).catch(e => {
+            console.log(e);
+        })
+    }
 
     useEffect(() => {
         const dt = new Date();
@@ -22,6 +33,9 @@ function Timer({ start = false }: TimerProps) {
         } else if (!start) {
             clearInterval(interval);
             dispatch(setTimeToComplete(time));
+            if (board.status === BoardStatus.finished) {
+                createLeaderBoardRecord();
+            }
             setTime(0);
         }
 
