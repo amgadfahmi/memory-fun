@@ -94,7 +94,7 @@ function Cell({ cell, playSweep, playFail, playSuccess, playComplete }: Props) {
 
             <img src={cell.show ? getImgUrl(cell.backgroundImg) : defaultcard}
                 className={`w-full h-full object-cover rounded-2xl ${animate}`} onClick={e => onCellClick(cell)} />
-            <div className='absolute left-1/2'>{cell.handle}</div>
+            {import.meta.env.DEV && <div className='absolute left-1/2'>{cell.handle}</div>}
         </div >
     )
 }
