@@ -1,4 +1,5 @@
 
+import axios from 'axios';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import useSound from 'use-sound';
@@ -20,6 +21,7 @@ interface Props {
 function Cell({ cell }: Props) {
     const [animate, setAnimate] = useState('');
     const cells = useSelector((state: RootState) => state.board.cells);
+    const board = useSelector((state: RootState) => state.board);
     const dispatch = useDispatch();
     const [showModal, setShowModal] = useState(false);
     const [playSweep] = useSound(sweep);
@@ -32,9 +34,19 @@ function Cell({ cell }: Props) {
         return new URL(path, import.meta.url).toString()
     }
 
+    function createLeaderBoardRecord() {
+        const ENDPOINT_URL = import.meta.env.VITE_ENDPOINT_URL;
+        axios.post(`${ENDPOINT_URL}leaderboard/create`, {
+            steps: board.numberOrTries, timeToComplete: board.timeToComplete
+        }).catch(e => {
+            console.log(e);
+        })
+    }
+
     function gameOver() {
         playComplete();
         dispatch(setStatus(BoardStatus.finished));
+        createLeaderBoardRecord();
         setShowModal(true);
     }
 
