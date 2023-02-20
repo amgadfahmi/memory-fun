@@ -8,11 +8,9 @@ A simple memory game using Typescript, React, taolwind, vite and Redux Toolkit.
 
 ## Screenshots
 
-<img src="src/assets/screens/1.png?raw=true"  alt="screen1" width="450" height="300">
+<img src="src/assets/screens/2.png?raw=true"  alt="screen1" width="300" height="500">
 
-<img src="src/assets/screens/2.png?raw=true"  alt="screen1" width="450" height="500">
-
-<img src="src/assets/screens/3.png?raw=true"  alt="screen1" width="450" height="400">
+<img src="src/assets/screens/3.png?raw=true"  alt="screen1" width="350" height="300">
 
 ## Live
 
