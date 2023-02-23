@@ -7,8 +7,8 @@ import { RootState } from '../store/store';
 
 interface TimerProps {
     start: boolean;
-
 }
+
 function Timer({ start = false }: TimerProps) {
     const [time, setTime] = useState(0);
     const dispatch = useDispatch();
@@ -24,7 +24,6 @@ function Timer({ start = false }: TimerProps) {
     }
 
     useEffect(() => {
-        const dt = new Date();
         let interval: string | number | NodeJS.Timeout | undefined;
         if (start) {
             interval = setInterval(() => {
