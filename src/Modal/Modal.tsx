@@ -18,9 +18,7 @@ function Modal({ showModal = false, setShowModal, showResult = false }: Props) {
     const seconds = Math.floor((timeToComplete / 10) % 60)
     const minutes = Math.floor(timeToComplete / (10 * 60))
 
-    function share() {
 
-    }
     function newGame() {
         dispatch(reset());
         setShowModal(false)
@@ -58,7 +56,7 @@ function Modal({ showModal = false, setShowModal, showResult = false }: Props) {
                                     <div className="w-full flex justify-center gap-2">
                                         <a href="#"
                                             className="flex text-gray-100 justify-center transition duration-200 ease-in-out transform px-4 py-2 w-48 border-b-4 border-gray-500 hover:border-b-2 bg-gradient-to-t from-gray-400  via-gray-600 to-gray-200 rounded-2xl hover:translate-y-px "
-                                            onClick={() => showResult ? share() : setShowModal(false)}
+                                            onClick={() => showResult ? null : setShowModal(false)}
                                         >
                                             <span className="font-bold">
                                                 {showResult ? 'Share' : "Let's Goo!"}</span>

@@ -22,7 +22,7 @@ export interface BoardState {
   timeToComplete: number;
 }
 
-const shuffle = (array: any[]) => array.sort(() => 0.5 - Math.random());
+const shuffle = (array: CellState[]) => array.sort(() => 0.5 - Math.random());
 
 function generateDefaultCells(size: number): Array<CellState> {
   let handleIndex = 0;
