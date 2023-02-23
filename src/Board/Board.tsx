@@ -1,6 +1,5 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import useSound from 'use-sound';
-import defaultCard from "../assets/defaultcard.png";
 import sweep from '../assets/sounds/click.wav';
 import complete from '../assets/sounds/complete.wav';
 import fail from '../assets/sounds/fail.wav';
@@ -10,10 +9,6 @@ import Cell from "../Cell/Cell";
 import type { CellState } from '../store/boardSlice';
 import { RootState } from '../store/store';
 
-
-interface Props {
-    size: number;
-}
 
 function Board() {
     const cells = useSelector((state: RootState) => state.board.cells);

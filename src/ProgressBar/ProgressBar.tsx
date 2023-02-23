@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../store/store';
 
@@ -8,7 +7,7 @@ function ProgressBar() {
 
     const successCount = cells.filter((cell) => cell.matchFound).length;
     const barColor = () => {
-        let degree = successCount;
+        const degree = successCount;
         let intense = 400;
         let color = 'yellow';
         switch (true) {
@@ -34,7 +33,7 @@ function ProgressBar() {
     }
     const successPercentage = successCount / cells.length * 100
     const status = () => {
-        let value = Math.floor(successPercentage)
+        const value = Math.floor(successPercentage)
         switch (true) {
             case value >= 99:
                 return 'Beast ! 💃';

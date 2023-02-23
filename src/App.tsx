@@ -6,14 +6,12 @@ import { RootState } from './store/store';
 import { useState } from 'react';
 import './App.css';
 import logo from './assets/logo.png';
-import speed from './assets/speed.jpg';
 import Digit from './Digit/Digit';
 import Modal from './Modal/Modal';
 import ProgressBar from './ProgressBar/ProgressBar';
 import { BoardStatus } from './store/boardSlice';
 import Timer from './Timer/Timer';
 function App() {
-  const size = useSelector((state: RootState) => state.board.size);
   const numberOfTries = useSelector((state: RootState) => state.board.numberOrTries);
   const status = useSelector((state: RootState) => state.board.status);
   const [showModal, setShowModal] = useState(true);
