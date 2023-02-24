@@ -1,7 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
+import {
+    WhatsappShareButton
+} from "react-share";
 import { reset } from '../store/boardSlice';
 import { RootState } from "../store/store";
-
 
 interface Props {
     showModal: boolean;
@@ -59,7 +61,10 @@ function Modal({ showModal = false, setShowModal, showResult = false }: Props) {
                                             onClick={() => showResult ? null : setShowModal(false)}
                                         >
                                             <span className="font-bold">
-                                                {showResult ? 'Share' : "Let's Goo!"}</span>
+
+                                                {showResult ? <WhatsappShareButton url='https://incandescent-kitten-994f54.netlify.app/' title={`Look, my round was done in ${seconds} seconds and only ${numberOfTries} tries, can you beat me !`}>
+                                                    Share
+                                                </WhatsappShareButton> : "Let's Goo!"}</span>
                                         </a>
                                         {showResult && <a href="#"
                                             className="flex text-gray-100 justify-center transition duration-200 ease-in-out transform px-4 py-2 w-48 border-b-4 border-gray-500 hover:border-b-2 bg-gradient-to-t from-gray-400  via-gray-600 to-gray-200 rounded-2xl hover:translate-y-px "
