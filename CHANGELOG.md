@@ -1,3 +1,12 @@
+
+
+## [0.2.0](https://github.com/amgadfahmi/memory-fun/compare/0.1.8...0.2.0) (2023-02-24)
+
+
+### ✨ Features
+
+* **result:** added the ability to share on whatsapp, 1 activate share button ([#9](https://github.com/amgadfahmi/memory-fun/issues/9)) ([2ef9bf8](https://github.com/amgadfahmi/memory-fun/commit/2ef9bf8d4d3cb7dc6fc587c284b77729ef6e6e3e)), closes [#1](https://github.com/amgadfahmi/memory-fun/issues/1)
+
 ### [0.1.8](https://github.com/amgadfahmi/memory-fun/compare/0.1.7...0.1.8) (2023-02-24)
 
 ### 📝 Documentation
