@@ -1,5 +1,7 @@
 
 
+### [0.1.1](https://github.com/amgadfahmi/memory-fun/compare/0.1.0...0.1.1) (2023-02-24)
+
 ## [0.1.0](https://github.com/amgadfahmi/memory-fun/compare/0.0.1...0.1.0) (2023-02-24)
 
 
