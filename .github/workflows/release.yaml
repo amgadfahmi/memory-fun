@@ -8,6 +8,9 @@ on:
     branches:
       - main
 
+# permissions:
+#   contents: write
+
 jobs:
   linter:
     name: Linters
@@ -19,7 +22,7 @@ jobs:
       - run: npm run lint
 
   release:
-    name: final
+    name: Release - Tag - Changelog
     needs: linter
     runs-on: ubuntu-latest
     steps:
