@@ -1,7 +1,7 @@
 {
   "name": "memory-fun",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.2",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "lint": "npx eslint ./src",
     "lint:fix": "npx eslint ./src --fix",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "release": "release-it"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.2",
@@ -20,6 +21,9 @@
     "use-sound": "^4.0.1"
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.4.4",
+    "@commitlint/config-conventional": "^17.4.4",
+    "@release-it/conventional-changelog": "^5.1.1",
     "@types/node": "^18.13.0",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
@@ -28,17 +32,20 @@
     "@vitejs/plugin-react": "^3.1.0",
     "autoprefixer": "^10.4.13",
     "cz-conventional-changelog": "^3.3.0",
+    "dotenv-cli": "^7.0.0",
     "eslint": "^8.34.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-react": "^7.32.2",
     "eslint-watch": "^8.0.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^13.1.2",
     "postcss": "^8.4.21",
     "prettier": "2.8.4",
+    "release-it": "^15.6.0",
     "tailwindcss": "^3.2.7",
     "typescript": "^4.9.3",
     "vite": "^4.1.0",
-    "vite-plugin-static-copy": "^0.13.0",
-    "husky": "^8.0.0"
+    "vite-plugin-static-copy": "^0.13.0"
   },
   "config": {
     "commitizen": {
