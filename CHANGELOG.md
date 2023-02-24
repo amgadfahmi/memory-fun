@@ -1,5 +1,12 @@
 
 
+### [0.1.8](https://github.com/amgadfahmi/memory-fun/compare/0.1.7...0.1.8) (2023-02-24)
+
+
+### 📝 Documentation
+
+* **docs:** update dependencies status ([e453a26](https://github.com/amgadfahmi/memory-fun/commit/e453a2631aefc890b5b7e655a4980b4484f8fc0c))
+
 ### [0.1.7](https://github.com/amgadfahmi/memory-fun/compare/0.1.5...0.1.7) (2023-02-24)
 
 
