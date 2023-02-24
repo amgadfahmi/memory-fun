@@ -14,6 +14,7 @@ on:
 jobs:
   linter:
     name: Linters
+    if: ${{ github.event_name != 'pull_request' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -23,6 +24,7 @@ jobs:
 
   release:
     name: Release - Tag - Changelog
+    if: ${{ github.event_name != 'pull_request' }}
     needs: linter
     runs-on: ubuntu-latest
     steps:
