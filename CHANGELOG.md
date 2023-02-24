@@ -1,18 +1,14 @@
-
-
 ### [0.1.8](https://github.com/amgadfahmi/memory-fun/compare/0.1.7...0.1.8) (2023-02-24)
-
 
 ### 📝 Documentation
 
-* **docs:** update dependencies status ([e453a26](https://github.com/amgadfahmi/memory-fun/commit/e453a2631aefc890b5b7e655a4980b4484f8fc0c))
+- **docs:** update dependencies status ([e453a26](https://github.com/amgadfahmi/memory-fun/commit/e453a2631aefc890b5b7e655a4980b4484f8fc0c))
 
 ### [0.1.7](https://github.com/amgadfahmi/memory-fun/compare/0.1.5...0.1.7) (2023-02-24)
 
-
 ### 🚚 Other Changes
 
-* release v0.1.6 ([ba605c6](https://github.com/amgadfahmi/memory-fun/commit/ba605c6e1096acb55e9b0a771a31bf27c2bbaed0))
+- release v0.1.6 ([ba605c6](https://github.com/amgadfahmi/memory-fun/commit/ba605c6e1096acb55e9b0a771a31bf27c2bbaed0))
 
 ### [0.1.6](https://github.com/amgadfahmi/memory-fun/compare/0.1.5...0.1.6) (2023-02-24)
 
@@ -22,19 +18,17 @@
 
 ### [0.1.3](https://github.com/amgadfahmi/memory-fun/compare/0.1.2...0.1.3) (2023-02-24)
 
-
 ### 📝 Documentation
 
-* **docs:** add some statuses about the repo ([73c4d33](https://github.com/amgadfahmi/memory-fun/commit/73c4d33fe552c185b4774f0ab785e8917d369d1d))
+- **docs:** add some statuses about the repo ([73c4d33](https://github.com/amgadfahmi/memory-fun/commit/73c4d33fe552c185b4774f0ab785e8917d369d1d))
 
 ### [0.1.2](https://github.com/amgadfahmi/memory-fun/compare/0.1.1...0.1.2) (2023-02-24)
 
-
 ### 🚚 Other Changes
 
-* **config:** add commitlint and update husky script ([4765721](https://github.com/amgadfahmi/memory-fun/commit/476572167ea045254b17e630eaa7e5892853bcf3))
-* **config:** upfate keep change log to no strict mode ([bdb59cf](https://github.com/amgadfahmi/memory-fun/commit/bdb59cf0f1a22fcd833dfb4acab4bb219e8ff1ee))
-* lintstage file changed ([e8dfcd7](https://github.com/amgadfahmi/memory-fun/commit/e8dfcd7103cc1c7b6f49786cb5f28e9df9ea567e))
+- **config:** add commitlint and update husky script ([4765721](https://github.com/amgadfahmi/memory-fun/commit/476572167ea045254b17e630eaa7e5892853bcf3))
+- **config:** upfate keep change log to no strict mode ([bdb59cf](https://github.com/amgadfahmi/memory-fun/commit/bdb59cf0f1a22fcd833dfb4acab4bb219e8ff1ee))
+- lintstage file changed ([e8dfcd7](https://github.com/amgadfahmi/memory-fun/commit/e8dfcd7103cc1c7b6f49786cb5f28e9df9ea567e))
 
 ### [0.1.1](https://github.com/amgadfahmi/memory-fun/compare/0.1.0...0.1.1) (2023-02-24)
 
