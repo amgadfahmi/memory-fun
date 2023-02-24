@@ -1,5 +1,12 @@
 
 
+### [0.1.7](https://github.com/amgadfahmi/memory-fun/compare/0.1.5...0.1.7) (2023-02-24)
+
+
+### 🚚 Other Changes
+
+* release v0.1.6 ([ba605c6](https://github.com/amgadfahmi/memory-fun/commit/ba605c6e1096acb55e9b0a771a31bf27c2bbaed0))
+
 ### [0.1.6](https://github.com/amgadfahmi/memory-fun/compare/0.1.5...0.1.6) (2023-02-24)
 
 ### [0.1.5](https://github.com/amgadfahmi/memory-fun/compare/0.1.4...0.1.5) (2023-02-24)
