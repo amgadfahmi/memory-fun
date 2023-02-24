@@ -1,5 +1,12 @@
 
 
+### [0.1.3](https://github.com/amgadfahmi/memory-fun/compare/0.1.2...0.1.3) (2023-02-24)
+
+
+### 📝 Documentation
+
+* **docs:** add some statuses about the repo ([73c4d33](https://github.com/amgadfahmi/memory-fun/commit/73c4d33fe552c185b4774f0ab785e8917d369d1d))
+
 ### [0.1.2](https://github.com/amgadfahmi/memory-fun/compare/0.1.1...0.1.2) (2023-02-24)
 
 
