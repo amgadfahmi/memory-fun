@@ -10,7 +10,7 @@
     "lint": "npx eslint ./src",
     "lint:fix": "npx eslint ./src --fix",
     "prepare": "husky install",
-    "release": "release-it"
+    "release": "release-it --no-plugins.@release-it/keep-a-changelog.strictLatest"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.2",
