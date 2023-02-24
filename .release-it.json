@@ -25,6 +25,10 @@
           {
             "type": "chore",
             "section": "Other Changes"
+          },
+          {
+            "type": "docs",
+            "section": "Documentation"
           }
         ]
       }
