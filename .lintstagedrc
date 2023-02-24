@@ -1,5 +1,4 @@
 {
   "*.ts": ["prettier --list-different", "eslint"],
-  "*.md": "prettier --list-different",
-  "*.json": "prettier --write"
+  "*.md": "prettier --write"
 }
