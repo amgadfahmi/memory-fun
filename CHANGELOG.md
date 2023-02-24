@@ -1,3 +1,14 @@
+
+
+### [0.1.2](https://github.com/amgadfahmi/memory-fun/compare/0.1.1...0.1.2) (2023-02-24)
+
+
+### 🚚 Other Changes
+
+* **config:** add commitlint and update husky script ([4765721](https://github.com/amgadfahmi/memory-fun/commit/476572167ea045254b17e630eaa7e5892853bcf3))
+* **config:** upfate keep change log to no strict mode ([bdb59cf](https://github.com/amgadfahmi/memory-fun/commit/bdb59cf0f1a22fcd833dfb4acab4bb219e8ff1ee))
+* lintstage file changed ([e8dfcd7](https://github.com/amgadfahmi/memory-fun/commit/e8dfcd7103cc1c7b6f49786cb5f28e9df9ea567e))
+
 ### [0.1.1](https://github.com/amgadfahmi/memory-fun/compare/0.1.0...0.1.1) (2023-02-24)
 
 ## [0.1.0](https://github.com/amgadfahmi/memory-fun/compare/0.0.1...0.1.0) (2023-02-24)
