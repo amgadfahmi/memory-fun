@@ -16,22 +16,46 @@
         "types": [
           {
             "type": "feat",
-            "section": "Features"
+            "section": "✨ Features"
           },
           {
             "type": "fix",
-            "section": "Bug Fixes"
+            "section": "🐛 Bug Fixes"
           },
           {
             "type": "chore",
-            "section": "Other Changes"
+            "section": "🚚 Other Changes"
           },
           {
             "type": "docs",
-            "section": "Documentation"
+            "section": "📝 Documentation"
+          },
+          {
+            "type": "style",
+            "hidden": false,
+            "section": "💄 Styling"
+          },
+          {
+            "type": "refactor",
+            "hidden": false,
+            "section": "♻️ Code Refactoring"
+          },
+          {
+            "type": "perf",
+            "hidden": false,
+            "section": "⚡️ Performance Improvements"
+          },
+          {
+            "type": "test",
+            "hidden": false,
+            "section": "✅ Testing"
           }
         ]
       }
+    },
+    "@release-it/keep-a-changelog": {
+      "filename": "CHANGELOG.md",
+      "strictLatest": false
     }
   }
 }
