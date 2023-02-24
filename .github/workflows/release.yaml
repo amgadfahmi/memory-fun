@@ -12,24 +12,22 @@ jobs:
   linter:
     name: Linters
     runs-on: ubuntu-latest
-
     steps:
       - name: Check out Git repository
         uses: actions/checkout@v2
-
       - name: Set up Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: 16  
+          node-version: 16
 
-      # any scripts can be added here 
+      # any scripts can be added here
       - name: Run linter
-      - uses: actions/checkout@v2
-        run: npm ci
-        run: npm run lint
-        
+        uses: actions/checkout@v2
+      - run: npm ci
+      - run: npm run lint
+
   release:
-    name: final 
+    name: final
     needs: linter
     runs-on: ubuntu-latest
     steps:
