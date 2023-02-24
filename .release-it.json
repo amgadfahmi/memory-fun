@@ -19,12 +19,13 @@
           {
             "type": "fix",
             "section": "Bug Fixes"
+          },
+          {
+            "type": "chore",
+            "section": "Other Changes"
           }
         ]
       }
-    },
-    "@release-it/keep-a-changelog": {
-      "filename": "CHANGELOG.md"
     }
   }
 }
