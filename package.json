@@ -34,7 +34,7 @@
     "autoprefixer": "^10.4.13",
     "cz-conventional-changelog": "^3.3.0",
     "dotenv-cli": "^7.0.0",
-    "eslint": "^8.34.0",
+    "eslint": "^8.45.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-react": "^7.32.2",
     "eslint-watch": "^8.0.0",
